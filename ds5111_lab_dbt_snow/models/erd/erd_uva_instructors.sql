@@ -1,0 +1,5 @@
+{{ config(materialized='table') }}
+
+
+SELECT  ROW_NUMBER() OVER(ORDER BY INSTRUCTORNAME) AS INSTRUCTOR_id, INSTRUCTORNAME, 'Y' as Active_flag , CURRENTEMPLOYEE
+From  (Select Distinct * from DS5111_DB.LAB01_BCB2GS.INSTRUCTORS )
